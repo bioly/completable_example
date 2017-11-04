@@ -71,6 +71,8 @@ public class App02_Blocking {
         final Future<String> stockFuture = executorService.submit(task);
 
         log.debug("SABR price: {}", stockFuture.get());
+
+        executorService.shutdown();
     }
 
     public static void simpleBlockingExecutorWithTimeout() throws ExecutionException, InterruptedException, TimeoutException {
@@ -83,6 +85,8 @@ public class App02_Blocking {
         final Future<String> stockFuture = executorService.submit(task);
 
         log.debug("SABR price: {}", stockFuture.get(2, TimeUnit.SECONDS));
+
+        executorService.shutdown();
     }
 
 }
