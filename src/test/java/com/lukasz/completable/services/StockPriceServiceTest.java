@@ -28,9 +28,8 @@ public class StockPriceServiceTest {
     public void fetchStockRecentValue() throws Exception {
         // when
         when(stockPriceService.fetchStockRecentValue("SABR")).thenReturn("100");
-        // then
         String value = stockPriceService.fetchStockRecentValue("SABR");
-        // when
+        // then
         assertEquals("100", value);
         verify(stockPriceServiceProvider, times(1)).fetchStockOnline(anyString());
     }
