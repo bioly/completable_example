@@ -9,7 +9,7 @@ import java.io.IOException;
 public abstract class StockPriceServiceProvider {
     public abstract String fetchStockOnline(final String ticker);
 
-    protected Document mostRecentStockValue(final String ticker, final String url) {
+    public Document mostRecentStockValue(final String ticker, final String url) {
         try{
             /* emulate exception just for php tag */
             if("FAIL".compareToIgnoreCase(ticker) == 0){

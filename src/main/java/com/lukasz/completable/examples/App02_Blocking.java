@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.*;
 
 import static com.lukasz.completable.utils.TimeIt.timed;
+import static com.lukasz.completable.utils.Deli.deli;
 
 public class App02_Blocking {
     private static final Logger log = LoggerFactory.getLogger(App02_Blocking.class);
@@ -22,19 +23,15 @@ public class App02_Blocking {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
         simpleBlocking();
-        deli();
+        deli("*", 40, log::debug);
         simpleBlocking2();
-        deli();
+        deli("*", 40, log::debug);
         simpleBlockingExecutor();
-        deli();
+        deli("*", 40, log::debug);
         simpleBlockingExecutorWithTimeout();
 
         // next examples will be about non blocking reactive code :) the code above is not right
         // for current tech requirements
-    }
-
-    private static void deli() {
-        System.out.println("********************************************************************");
     }
 
     public static void simpleBlocking() {
